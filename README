@@ -116,13 +116,13 @@ sensitivity_multiplier = 10
 size = (30,30)
 
 y=pixelator(
-    in_path='../images/input.jpg',
+    in_path='./images/input.jpg',
     palette=palette,
     size=size,
     sensitivity_multiplier=sensitivity_multiplier
     )
 
-y.resize_out_img().save_out_img(path='../images/output.jpg', overwrite=True)
+y.resize_out_img().save_out_img(path='./images/output.jpg', overwrite=True)
 out_data=y.out_data
 ```
 
