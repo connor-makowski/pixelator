@@ -16,7 +16,7 @@ Features
 Setup
 ----------
 
-Make sure you have Python 3.6.x (or higher) or Python2.7.x (or higher) installed on your system. You can download it [here](https://www.python.org/downloads/).
+Make sure you have Python 3.6.x (or higher). You can download it [here](https://www.python.org/downloads/).
 
 ### Installation
 
