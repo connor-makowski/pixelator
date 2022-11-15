@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pixelator.pixelator API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pixelator.pixelator</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import cv2, numpy
+
+
+class Picture_Utils:
+    @staticmethod
+    def crop_image(image, width, height):
+        &#34;&#34;&#34;
+        Crops an image to a specified width and height (centered)
+
+        Takes in three required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+        &#34;&#34;&#34;
+        (h, w) = image.shape[:2]
+        if width &gt; w or height &gt; h:
+            raise Exception(&#34;Cannot crop an image larger&#34;)
+        h_start = (h - height) // 2
+        h_end = h_start + height
+        w_start = (w - width) // 2
+        w_end = w_start + width
+        return image[h_start:h_end, w_start:w_end]
+
+    @staticmethod
+    def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
+        &#34;&#34;&#34;
+        Crops an image to a specified aspect ratio
+
+        Takes in two required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `aspect_ratio_w_by_h`:
+                - Type: int | float
+                - What: The aspect ratio for the cropped image
+        &#34;&#34;&#34;
+        (h, w) = image.shape[:2]
+        aspect_ratio_current = w / h
+        if aspect_ratio_w_by_h == aspect_ratio_current:
+            return image
+        new_h = int(w / aspect_ratio_w_by_h)
+        new_w = int(h * aspect_ratio_w_by_h)
+        if new_h &lt; h:
+            return Picture_Utils.crop_image(image, width=w, height=new_h)
+        if new_w &lt; w:
+            return Picture_Utils.crop_image(image, width=new_w, height=h)
+        raise Exception(&#34;Invalid aspect_ratio_w_by_h&#34;)
+
+    @staticmethod
+    def resize(image, width, height, interpolation=cv2.INTER_AREA):
+        &#34;&#34;&#34;
+        Resizes an image to a specified width and height
+
+        Takes in three required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+        &#34;&#34;&#34;
+        image = Picture_Utils.crop_to_aspect_ratio(image, width / height)
+        return cv2.resize(image, (width, height), interpolation=interpolation)
+
+    @staticmethod
+    def quantize_to_palette(image, palette):
+        &#34;&#34;&#34;
+        Quantizes an image to a given palette
+
+        Takes in two required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `palette`:
+                - Type: list of lists
+                - What: A list of BGR lists for quantizing the image
+        &#34;&#34;&#34;
+        palette = numpy.array(palette).astype(numpy.float32)
+        hsv_palette = cv2.cvtColor(
+            numpy.reshape(palette, (1,) + palette.shape), cv2.COLOR_BGR2HSV
+        ).reshape(palette.shape)
+        hsv_image_vector = (
+            cv2.cvtColor(image, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(numpy.float32)
+        )
+        # Use KNN to quantize
+        knn = cv2.ml.KNearest_create()
+        knn.train(hsv_palette, cv2.ml.ROW_SAMPLE, numpy.arange(len(palette)))
+        ret, results, neighbours, dist = knn.findNearest(hsv_image_vector, 1)
+        # Return the array as numpy in the correct shape as float 32 (to match cv2)
+        return numpy.array([palette[idx] for idx in neighbours.astype(int)]).reshape(image.shape)
+
+    @staticmethod
+    def capture(cam_port=0):
+        &#34;&#34;&#34;
+        Uses an attached camera or webcam to capture its input at the time of calling
+
+        Takes in one optional argument:
+
+            - `cam_port`:
+                - Type: int
+                - What: The camera port to use for a capture
+                - Default: 0
+                - Note: For more info see the docs for cv2.VideoCapture.
+        &#34;&#34;&#34;
+        cam = cv2.VideoCapture(cam_port)
+        try:
+            result, image = cam.read()
+            cam.release()
+        except Exception as e:
+            cam.release()
+            raise Exception(e)
+        return image
+
+    @staticmethod
+    def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
+        &#34;&#34;&#34;
+        Converts an image to an alternate colorscheme
+
+        Takes in one required argument:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+
+        Takes in one optional argument:
+
+            - `colorscheme`:
+                - Type: str
+                - What: The color scheme to convert
+                - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
+                - Default: &#39;bgr&#39;
+
+        &#34;&#34;&#34;
+        colorscheme = str(colorscheme).lower()
+        if colorscheme == &#34;bgr&#34;:
+            return image
+        if colorscheme == &#34;rgb&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        if colorscheme == &#34;gray&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        if colorscheme == &#34;hsv&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    @staticmethod
+    def read(filename):
+        &#34;&#34;&#34;
+        Reads a picture into CV2 image data
+
+        Requires one argument:
+
+            - `filename`:
+                - Type: str
+                - What: Filename from which to load a picture
+        &#34;&#34;&#34;
+        return cv2.imread(filename)
+
+
+class Pixelator(Picture_Utils):
+    def __init__(self, data=None, filename=None, cam_port=0):
+        &#34;&#34;&#34;
+        Initialize a Pixelator object.
+
+        Takes in three optional arguments:
+
+            - `data`:
+                - Type: list of lists
+                - What: BGR array of data to input
+                - Note: If not specified, proceeds to attempt to load from a filename
+            - `filename`:
+                - Type: str
+                - What: Filename from which to load a picture
+                - Note: If not specified, proceeds to attempt a camera capture
+            - `cam_port`:
+                - Type: int
+                - What: The camera port to use for a capture
+                - Note: For more info see the docs for cv2.VideoCapture.
+        &#34;&#34;&#34;
+        if data is not None:
+            self.data = data
+        elif filename is not None:
+            self.data = self.read(filename)
+        else:
+            self.data = self.capture(cam_port)
+
+    def pixelate(self, width=None, height=None, palette=None):
+        &#34;&#34;&#34;
+        Pixelates an image to a specific shape and color palette
+
+        Returns a new Pixelator (class) image
+
+        Takes in three optional arguments:
+
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+                - Note: If either `width` or `height` are not specified, this function only applies the palette
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+                - Note: If either `width` or `height` are not specified, this function only applies the palette
+            - `palette`:
+                - Type: list of lists
+                - What: A list of BGR lists to apply as a pallete
+                - Note: If not specified, no palette is applied
+        &#34;&#34;&#34;
+        out = self.resize(image=self.data, width=width, height=height)
+        if palette is not None:
+            out = self.quantize_to_palette(out, palette)
+        return Pixelator(data=out)
+
+    def write(self, filename, width=None, height=None):
+        &#34;&#34;&#34;
+        Writes the current image to a specific file and resizes to a given width and height if supplied
+
+        Takes in one required argument:
+
+            - `filename`:
+                - Type: str
+                - What: Filename at which to write the picture
+
+        Takes in two optional arguments:
+
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+                - Note: If either `width` or `height` are not specified, no resizing is done
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+                - Note: If either `width` or `height` are not specified, no resizing is done
+        &#34;&#34;&#34;
+        if width == None or height == None:
+            (height, width) = self.data.shape[:2]
+        cv2.imwrite(filename, self.resize(self.data, width, height))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pixelator.pixelator.Picture_Utils"><code class="flex name class">
+<span>class <span class="ident">Picture_Utils</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Picture_Utils:
+    @staticmethod
+    def crop_image(image, width, height):
+        &#34;&#34;&#34;
+        Crops an image to a specified width and height (centered)
+
+        Takes in three required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+        &#34;&#34;&#34;
+        (h, w) = image.shape[:2]
+        if width &gt; w or height &gt; h:
+            raise Exception(&#34;Cannot crop an image larger&#34;)
+        h_start = (h - height) // 2
+        h_end = h_start + height
+        w_start = (w - width) // 2
+        w_end = w_start + width
+        return image[h_start:h_end, w_start:w_end]
+
+    @staticmethod
+    def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
+        &#34;&#34;&#34;
+        Crops an image to a specified aspect ratio
+
+        Takes in two required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `aspect_ratio_w_by_h`:
+                - Type: int | float
+                - What: The aspect ratio for the cropped image
+        &#34;&#34;&#34;
+        (h, w) = image.shape[:2]
+        aspect_ratio_current = w / h
+        if aspect_ratio_w_by_h == aspect_ratio_current:
+            return image
+        new_h = int(w / aspect_ratio_w_by_h)
+        new_w = int(h * aspect_ratio_w_by_h)
+        if new_h &lt; h:
+            return Picture_Utils.crop_image(image, width=w, height=new_h)
+        if new_w &lt; w:
+            return Picture_Utils.crop_image(image, width=new_w, height=h)
+        raise Exception(&#34;Invalid aspect_ratio_w_by_h&#34;)
+
+    @staticmethod
+    def resize(image, width, height, interpolation=cv2.INTER_AREA):
+        &#34;&#34;&#34;
+        Resizes an image to a specified width and height
+
+        Takes in three required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+        &#34;&#34;&#34;
+        image = Picture_Utils.crop_to_aspect_ratio(image, width / height)
+        return cv2.resize(image, (width, height), interpolation=interpolation)
+
+    @staticmethod
+    def quantize_to_palette(image, palette):
+        &#34;&#34;&#34;
+        Quantizes an image to a given palette
+
+        Takes in two required arguments:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+            - `palette`:
+                - Type: list of lists
+                - What: A list of BGR lists for quantizing the image
+        &#34;&#34;&#34;
+        palette = numpy.array(palette).astype(numpy.float32)
+        hsv_palette = cv2.cvtColor(
+            numpy.reshape(palette, (1,) + palette.shape), cv2.COLOR_BGR2HSV
+        ).reshape(palette.shape)
+        hsv_image_vector = (
+            cv2.cvtColor(image, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(numpy.float32)
+        )
+        # Use KNN to quantize
+        knn = cv2.ml.KNearest_create()
+        knn.train(hsv_palette, cv2.ml.ROW_SAMPLE, numpy.arange(len(palette)))
+        ret, results, neighbours, dist = knn.findNearest(hsv_image_vector, 1)
+        # Return the array as numpy in the correct shape as float 32 (to match cv2)
+        return numpy.array([palette[idx] for idx in neighbours.astype(int)]).reshape(image.shape)
+
+    @staticmethod
+    def capture(cam_port=0):
+        &#34;&#34;&#34;
+        Uses an attached camera or webcam to capture its input at the time of calling
+
+        Takes in one optional argument:
+
+            - `cam_port`:
+                - Type: int
+                - What: The camera port to use for a capture
+                - Default: 0
+                - Note: For more info see the docs for cv2.VideoCapture.
+        &#34;&#34;&#34;
+        cam = cv2.VideoCapture(cam_port)
+        try:
+            result, image = cam.read()
+            cam.release()
+        except Exception as e:
+            cam.release()
+            raise Exception(e)
+        return image
+
+    @staticmethod
+    def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
+        &#34;&#34;&#34;
+        Converts an image to an alternate colorscheme
+
+        Takes in one required argument:
+
+            - `image`:
+                - Type: list of lists
+                - What: CV2 image data
+
+        Takes in one optional argument:
+
+            - `colorscheme`:
+                - Type: str
+                - What: The color scheme to convert
+                - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
+                - Default: &#39;bgr&#39;
+
+        &#34;&#34;&#34;
+        colorscheme = str(colorscheme).lower()
+        if colorscheme == &#34;bgr&#34;:
+            return image
+        if colorscheme == &#34;rgb&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        if colorscheme == &#34;gray&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        if colorscheme == &#34;hsv&#34;:
+            return cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    @staticmethod
+    def read(filename):
+        &#34;&#34;&#34;
+        Reads a picture into CV2 image data
+
+        Requires one argument:
+
+            - `filename`:
+                - Type: str
+                - What: Filename from which to load a picture
+        &#34;&#34;&#34;
+        return cv2.imread(filename)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pixelator.pixelator.Pixelator" href="#pixelator.pixelator.Pixelator">Pixelator</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="pixelator.pixelator.Picture_Utils.capture"><code class="name flex">
+<span>def <span class="ident">capture</span></span>(<span>cam_port=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses an attached camera or webcam to capture its input at the time of calling</p>
+<p>Takes in one optional argument:</p>
+<pre><code>- &lt;code&gt;cam\_port&lt;/code&gt;:
+    - Type: int
+    - What: The camera port to use for a capture
+    - Default: 0
+    - Note: For more info see the docs for cv2.VideoCapture.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def capture(cam_port=0):
+    &#34;&#34;&#34;
+    Uses an attached camera or webcam to capture its input at the time of calling
+
+    Takes in one optional argument:
+
+        - `cam_port`:
+            - Type: int
+            - What: The camera port to use for a capture
+            - Default: 0
+            - Note: For more info see the docs for cv2.VideoCapture.
+    &#34;&#34;&#34;
+    cam = cv2.VideoCapture(cam_port)
+    try:
+        result, image = cam.read()
+        cam.release()
+    except Exception as e:
+        cam.release()
+        raise Exception(e)
+    return image</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.crop_image"><code class="name flex">
+<span>def <span class="ident">crop_image</span></span>(<span>image, width, height)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Crops an image to a specified width and height (centered)</p>
+<p>Takes in three required arguments:</p>
+<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+    - Type: list of lists
+    - What: CV2 image data
+- &lt;code&gt;width&lt;/code&gt;:
+    - Type: int
+    - What: The width in pixels for the output image
+- &lt;code&gt;height&lt;/code&gt;:
+    - Type: int
+    - What: The height in pixels for the output image
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def crop_image(image, width, height):
+    &#34;&#34;&#34;
+    Crops an image to a specified width and height (centered)
+
+    Takes in three required arguments:
+
+        - `image`:
+            - Type: list of lists
+            - What: CV2 image data
+        - `width`:
+            - Type: int
+            - What: The width in pixels for the output image
+        - `height`:
+            - Type: int
+            - What: The height in pixels for the output image
+    &#34;&#34;&#34;
+    (h, w) = image.shape[:2]
+    if width &gt; w or height &gt; h:
+        raise Exception(&#34;Cannot crop an image larger&#34;)
+    h_start = (h - height) // 2
+    h_end = h_start + height
+    w_start = (w - width) // 2
+    w_end = w_start + width
+    return image[h_start:h_end, w_start:w_end]</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.crop_to_aspect_ratio"><code class="name flex">
+<span>def <span class="ident">crop_to_aspect_ratio</span></span>(<span>image, aspect_ratio_w_by_h)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Crops an image to a specified aspect ratio</p>
+<p>Takes in two required arguments:</p>
+<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+    - Type: list of lists
+    - What: CV2 image data
+- &lt;code&gt;aspect\_ratio\_w\_by\_h&lt;/code&gt;:
+    - Type: int | float
+    - What: The aspect ratio for the cropped image
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
+    &#34;&#34;&#34;
+    Crops an image to a specified aspect ratio
+
+    Takes in two required arguments:
+
+        - `image`:
+            - Type: list of lists
+            - What: CV2 image data
+        - `aspect_ratio_w_by_h`:
+            - Type: int | float
+            - What: The aspect ratio for the cropped image
+    &#34;&#34;&#34;
+    (h, w) = image.shape[:2]
+    aspect_ratio_current = w / h
+    if aspect_ratio_w_by_h == aspect_ratio_current:
+        return image
+    new_h = int(w / aspect_ratio_w_by_h)
+    new_w = int(h * aspect_ratio_w_by_h)
+    if new_h &lt; h:
+        return Picture_Utils.crop_image(image, width=w, height=new_h)
+    if new_w &lt; w:
+        return Picture_Utils.crop_image(image, width=new_w, height=h)
+    raise Exception(&#34;Invalid aspect_ratio_w_by_h&#34;)</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.quantize_to_palette"><code class="name flex">
+<span>def <span class="ident">quantize_to_palette</span></span>(<span>image, palette)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Quantizes an image to a given palette</p>
+<p>Takes in two required arguments:</p>
+<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+    - Type: list of lists
+    - What: CV2 image data
+- &lt;code&gt;palette&lt;/code&gt;:
+    - Type: list of lists
+    - What: A list of BGR lists for quantizing the image
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def quantize_to_palette(image, palette):
+    &#34;&#34;&#34;
+    Quantizes an image to a given palette
+
+    Takes in two required arguments:
+
+        - `image`:
+            - Type: list of lists
+            - What: CV2 image data
+        - `palette`:
+            - Type: list of lists
+            - What: A list of BGR lists for quantizing the image
+    &#34;&#34;&#34;
+    palette = numpy.array(palette).astype(numpy.float32)
+    hsv_palette = cv2.cvtColor(
+        numpy.reshape(palette, (1,) + palette.shape), cv2.COLOR_BGR2HSV
+    ).reshape(palette.shape)
+    hsv_image_vector = (
+        cv2.cvtColor(image, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(numpy.float32)
+    )
+    # Use KNN to quantize
+    knn = cv2.ml.KNearest_create()
+    knn.train(hsv_palette, cv2.ml.ROW_SAMPLE, numpy.arange(len(palette)))
+    ret, results, neighbours, dist = knn.findNearest(hsv_image_vector, 1)
+    # Return the array as numpy in the correct shape as float 32 (to match cv2)
+    return numpy.array([palette[idx] for idx in neighbours.astype(int)]).reshape(image.shape)</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads a picture into CV2 image data</p>
+<p>Requires one argument:</p>
+<pre><code>- &lt;code&gt;filename&lt;/code&gt;:
+    - Type: str
+    - What: Filename from which to load a picture
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def read(filename):
+    &#34;&#34;&#34;
+    Reads a picture into CV2 image data
+
+    Requires one argument:
+
+        - `filename`:
+            - Type: str
+            - What: Filename from which to load a picture
+    &#34;&#34;&#34;
+    return cv2.imread(filename)</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.resize"><code class="name flex">
+<span>def <span class="ident">resize</span></span>(<span>image, width, height, interpolation=3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resizes an image to a specified width and height</p>
+<p>Takes in three required arguments:</p>
+<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+    - Type: list of lists
+    - What: CV2 image data
+- &lt;code&gt;width&lt;/code&gt;:
+    - Type: int
+    - What: The width in pixels for the output image
+- &lt;code&gt;height&lt;/code&gt;:
+    - Type: int
+    - What: The height in pixels for the output image
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def resize(image, width, height, interpolation=cv2.INTER_AREA):
+    &#34;&#34;&#34;
+    Resizes an image to a specified width and height
+
+    Takes in three required arguments:
+
+        - `image`:
+            - Type: list of lists
+            - What: CV2 image data
+        - `width`:
+            - Type: int
+            - What: The width in pixels for the output image
+        - `height`:
+            - Type: int
+            - What: The height in pixels for the output image
+    &#34;&#34;&#34;
+    image = Picture_Utils.crop_to_aspect_ratio(image, width / height)
+    return cv2.resize(image, (width, height), interpolation=interpolation)</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Picture_Utils.to_colorscheme"><code class="name flex">
+<span>def <span class="ident">to_colorscheme</span></span>(<span>image, colorscheme='bgr')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts an image to an alternate colorscheme</p>
+<p>Takes in one required argument:</p>
+<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+    - Type: list of lists
+    - What: CV2 image data
+</code></pre>
+<p>Takes in one optional argument:</p>
+<pre><code>- &lt;code&gt;colorscheme&lt;/code&gt;:
+    - Type: str
+    - What: The color scheme to convert
+    - Options: ['bgr', 'rgb', 'gray', 'hsv']
+    - Default: 'bgr'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
+    &#34;&#34;&#34;
+    Converts an image to an alternate colorscheme
+
+    Takes in one required argument:
+
+        - `image`:
+            - Type: list of lists
+            - What: CV2 image data
+
+    Takes in one optional argument:
+
+        - `colorscheme`:
+            - Type: str
+            - What: The color scheme to convert
+            - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
+            - Default: &#39;bgr&#39;
+
+    &#34;&#34;&#34;
+    colorscheme = str(colorscheme).lower()
+    if colorscheme == &#34;bgr&#34;:
+        return image
+    if colorscheme == &#34;rgb&#34;:
+        return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    if colorscheme == &#34;gray&#34;:
+        return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    if colorscheme == &#34;hsv&#34;:
+        return cv2.cvtColor(image, cv2.COLOR_BGR2HSV)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pixelator.pixelator.Pixelator"><code class="flex name class">
+<span>class <span class="ident">Pixelator</span></span>
+<span>(</span><span>data=None, filename=None, cam_port=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialize a Pixelator object.</p>
+<p>Takes in three optional arguments:</p>
+<pre><code>- &lt;code&gt;data&lt;/code&gt;:
+    - Type: list of lists
+    - What: BGR array of data to input
+    - Note: If not specified, proceeds to attempt to load from a filename
+- &lt;code&gt;filename&lt;/code&gt;:
+    - Type: str
+    - What: Filename from which to load a picture
+    - Note: If not specified, proceeds to attempt a camera capture
+- &lt;code&gt;cam\_port&lt;/code&gt;:
+    - Type: int
+    - What: The camera port to use for a capture
+    - Note: For more info see the docs for cv2.VideoCapture.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Pixelator(Picture_Utils):
+    def __init__(self, data=None, filename=None, cam_port=0):
+        &#34;&#34;&#34;
+        Initialize a Pixelator object.
+
+        Takes in three optional arguments:
+
+            - `data`:
+                - Type: list of lists
+                - What: BGR array of data to input
+                - Note: If not specified, proceeds to attempt to load from a filename
+            - `filename`:
+                - Type: str
+                - What: Filename from which to load a picture
+                - Note: If not specified, proceeds to attempt a camera capture
+            - `cam_port`:
+                - Type: int
+                - What: The camera port to use for a capture
+                - Note: For more info see the docs for cv2.VideoCapture.
+        &#34;&#34;&#34;
+        if data is not None:
+            self.data = data
+        elif filename is not None:
+            self.data = self.read(filename)
+        else:
+            self.data = self.capture(cam_port)
+
+    def pixelate(self, width=None, height=None, palette=None):
+        &#34;&#34;&#34;
+        Pixelates an image to a specific shape and color palette
+
+        Returns a new Pixelator (class) image
+
+        Takes in three optional arguments:
+
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+                - Note: If either `width` or `height` are not specified, this function only applies the palette
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+                - Note: If either `width` or `height` are not specified, this function only applies the palette
+            - `palette`:
+                - Type: list of lists
+                - What: A list of BGR lists to apply as a pallete
+                - Note: If not specified, no palette is applied
+        &#34;&#34;&#34;
+        out = self.resize(image=self.data, width=width, height=height)
+        if palette is not None:
+            out = self.quantize_to_palette(out, palette)
+        return Pixelator(data=out)
+
+    def write(self, filename, width=None, height=None):
+        &#34;&#34;&#34;
+        Writes the current image to a specific file and resizes to a given width and height if supplied
+
+        Takes in one required argument:
+
+            - `filename`:
+                - Type: str
+                - What: Filename at which to write the picture
+
+        Takes in two optional arguments:
+
+            - `width`:
+                - Type: int
+                - What: The width in pixels for the output image
+                - Note: If either `width` or `height` are not specified, no resizing is done
+            - `height`:
+                - Type: int
+                - What: The height in pixels for the output image
+                - Note: If either `width` or `height` are not specified, no resizing is done
+        &#34;&#34;&#34;
+        if width == None or height == None:
+            (height, width) = self.data.shape[:2]
+        cv2.imwrite(filename, self.resize(self.data, width, height))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pixelator.pixelator.Picture_Utils" href="#pixelator.pixelator.Picture_Utils">Picture_Utils</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pixelator.pixelator.Pixelator.pixelate"><code class="name flex">
+<span>def <span class="ident">pixelate</span></span>(<span>self, width=None, height=None, palette=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pixelates an image to a specific shape and color palette</p>
+<p>Returns a new Pixelator (class) image</p>
+<p>Takes in three optional arguments:</p>
+<pre><code>- &lt;code&gt;width&lt;/code&gt;:
+    - Type: int
+    - What: The width in pixels for the output image
+    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, this function only applies the palette
+- &lt;code&gt;height&lt;/code&gt;:
+    - Type: int
+    - What: The height in pixels for the output image
+    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, this function only applies the palette
+- &lt;code&gt;palette&lt;/code&gt;:
+    - Type: list of lists
+    - What: A list of BGR lists to apply as a pallete
+    - Note: If not specified, no palette is applied
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pixelate(self, width=None, height=None, palette=None):
+    &#34;&#34;&#34;
+    Pixelates an image to a specific shape and color palette
+
+    Returns a new Pixelator (class) image
+
+    Takes in three optional arguments:
+
+        - `width`:
+            - Type: int
+            - What: The width in pixels for the output image
+            - Note: If either `width` or `height` are not specified, this function only applies the palette
+        - `height`:
+            - Type: int
+            - What: The height in pixels for the output image
+            - Note: If either `width` or `height` are not specified, this function only applies the palette
+        - `palette`:
+            - Type: list of lists
+            - What: A list of BGR lists to apply as a pallete
+            - Note: If not specified, no palette is applied
+    &#34;&#34;&#34;
+    out = self.resize(image=self.data, width=width, height=height)
+    if palette is not None:
+        out = self.quantize_to_palette(out, palette)
+    return Pixelator(data=out)</code></pre>
+</details>
+</dd>
+<dt id="pixelator.pixelator.Pixelator.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, filename, width=None, height=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Writes the current image to a specific file and resizes to a given width and height if supplied</p>
+<p>Takes in one required argument:</p>
+<pre><code>- &lt;code&gt;filename&lt;/code&gt;:
+    - Type: str
+    - What: Filename at which to write the picture
+</code></pre>
+<p>Takes in two optional arguments:</p>
+<pre><code>- &lt;code&gt;width&lt;/code&gt;:
+    - Type: int
+    - What: The width in pixels for the output image
+    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, no resizing is done
+- &lt;code&gt;height&lt;/code&gt;:
+    - Type: int
+    - What: The height in pixels for the output image
+    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, no resizing is done
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write(self, filename, width=None, height=None):
+    &#34;&#34;&#34;
+    Writes the current image to a specific file and resizes to a given width and height if supplied
+
+    Takes in one required argument:
+
+        - `filename`:
+            - Type: str
+            - What: Filename at which to write the picture
+
+    Takes in two optional arguments:
+
+        - `width`:
+            - Type: int
+            - What: The width in pixels for the output image
+            - Note: If either `width` or `height` are not specified, no resizing is done
+        - `height`:
+            - Type: int
+            - What: The height in pixels for the output image
+            - Note: If either `width` or `height` are not specified, no resizing is done
+    &#34;&#34;&#34;
+    if width == None or height == None:
+        (height, width) = self.data.shape[:2]
+    cv2.imwrite(filename, self.resize(self.data, width, height))</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pixelator.pixelator.Picture_Utils" href="#pixelator.pixelator.Picture_Utils">Picture_Utils</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pixelator.pixelator.Picture_Utils.capture" href="#pixelator.pixelator.Picture_Utils.capture">capture</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.crop_image" href="#pixelator.pixelator.Picture_Utils.crop_image">crop_image</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.crop_to_aspect_ratio" href="#pixelator.pixelator.Picture_Utils.crop_to_aspect_ratio">crop_to_aspect_ratio</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.quantize_to_palette" href="#pixelator.pixelator.Picture_Utils.quantize_to_palette">quantize_to_palette</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.read" href="#pixelator.pixelator.Picture_Utils.read">read</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.resize" href="#pixelator.pixelator.Picture_Utils.resize">resize</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.to_colorscheme" href="#pixelator.pixelator.Picture_Utils.to_colorscheme">to_colorscheme</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pixelator" href="index.html">pixelator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pixelator.pixelator.Picture_Utils" href="#pixelator.pixelator.Picture_Utils">Picture_Utils</a></code></h4>
+<ul class="">
+<li><code><a title="pixelator.pixelator.Picture_Utils.capture" href="#pixelator.pixelator.Picture_Utils.capture">capture</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.crop_image" href="#pixelator.pixelator.Picture_Utils.crop_image">crop_image</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.crop_to_aspect_ratio" href="#pixelator.pixelator.Picture_Utils.crop_to_aspect_ratio">crop_to_aspect_ratio</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.quantize_to_palette" href="#pixelator.pixelator.Picture_Utils.quantize_to_palette">quantize_to_palette</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.read" href="#pixelator.pixelator.Picture_Utils.read">read</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.resize" href="#pixelator.pixelator.Picture_Utils.resize">resize</a></code></li>
+<li><code><a title="pixelator.pixelator.Picture_Utils.to_colorscheme" href="#pixelator.pixelator.Picture_Utils.to_colorscheme">to_colorscheme</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pixelator.pixelator.Pixelator" href="#pixelator.pixelator.Pixelator">Pixelator</a></code></h4>
+<ul class="">
+<li><code><a title="pixelator.pixelator.Pixelator.pixelate" href="#pixelator.pixelator.Pixelator.pixelate">pixelate</a></code></li>
+<li><code><a title="pixelator.pixelator.Pixelator.write" href="#pixelator.pixelator.Pixelator.write">write</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,1 +1,1 @@
-from pixelator.pixelator import pixelator
+from .pixelator import Pixelator
