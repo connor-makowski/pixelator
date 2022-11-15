@@ -10,6 +10,10 @@ Features
   2. Pixelate images to a specific color palette and image resolution
   3. Access pixelated array data or write it back to an image file
 
+Technical Docs
+--------
+https://connor-makowski.github.io/pixelator/pixelator.html
+
 Setup
 ----------
 

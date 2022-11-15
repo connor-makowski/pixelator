@@ -9,13 +9,13 @@ class Picture_Utils:
 
         Takes in three required arguments:
 
-            - `image`:
+            - 'image':
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - 'width':
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - 'height':
                 - Type: int
                 - What: The height in pixels for the output image
         """
@@ -35,10 +35,10 @@ class Picture_Utils:
 
         Takes in two required arguments:
 
-            - `image`:
+            - 'image':
                 - Type: list of lists
                 - What: CV2 image data
-            - `aspect_ratio_w_by_h`:
+            - 'aspect_ratio_w_by_h':
                 - Type: int | float
                 - What: The aspect ratio for the cropped image
         """
@@ -61,13 +61,13 @@ class Picture_Utils:
 
         Takes in three required arguments:
 
-            - `image`:
+            - 'image':
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - 'width':
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - 'height':
                 - Type: int
                 - What: The height in pixels for the output image
         """
@@ -81,10 +81,10 @@ class Picture_Utils:
 
         Takes in two required arguments:
 
-            - `image`:
+            - 'image':
                 - Type: list of lists
                 - What: CV2 image data
-            - `palette`:
+            - 'palette':
                 - Type: list of lists
                 - What: A list of BGR lists for quantizing the image
         """
@@ -109,7 +109,7 @@ class Picture_Utils:
 
         Takes in one optional argument:
 
-            - `cam_port`:
+            - 'cam_port':
                 - Type: int
                 - What: The camera port to use for a capture
                 - Default: 0
@@ -131,13 +131,13 @@ class Picture_Utils:
 
         Takes in one required argument:
 
-            - `image`:
+            - 'image':
                 - Type: list of lists
                 - What: CV2 image data
 
         Takes in one optional argument:
 
-            - `colorscheme`:
+            - 'colorscheme':
                 - Type: str
                 - What: The color scheme to convert
                 - Options: ['bgr', 'rgb', 'gray', 'hsv']
@@ -161,7 +161,7 @@ class Picture_Utils:
 
         Requires one argument:
 
-            - `filename`:
+            - 'filename':
                 - Type: str
                 - What: Filename from which to load a picture
         """
@@ -175,15 +175,15 @@ class Pixelator(Picture_Utils):
 
         Takes in three optional arguments:
 
-            - `data`:
+            - 'data':
                 - Type: list of lists
                 - What: BGR array of data to input
                 - Note: If not specified, proceeds to attempt to load from a filename
-            - `filename`:
+            - 'filename':
                 - Type: str
                 - What: Filename from which to load a picture
                 - Note: If not specified, proceeds to attempt a camera capture
-            - `cam_port`:
+            - 'cam_port':
                 - Type: int
                 - What: The camera port to use for a capture
                 - Note: For more info see the docs for cv2.VideoCapture.
@@ -203,15 +203,15 @@ class Pixelator(Picture_Utils):
 
         Takes in three optional arguments:
 
-            - `width`:
+            - 'width':
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `height`:
+                - Note: If either 'width' or 'height' are not specified, this function only applies the palette
+            - 'height':
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `palette`:
+                - Note: If either 'width' or 'height' are not specified, this function only applies the palette
+            - 'palette':
                 - Type: list of lists
                 - What: A list of BGR lists to apply as a pallete
                 - Note: If not specified, no palette is applied
@@ -227,20 +227,20 @@ class Pixelator(Picture_Utils):
 
         Takes in one required argument:
 
-            - `filename`:
+            - 'filename':
                 - Type: str
                 - What: Filename at which to write the picture
 
         Takes in two optional arguments:
 
-            - `width`:
+            - 'width':
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
-            - `height`:
+                - Note: If either 'width' or 'height' are not specified, no resizing is done
+            - 'height':
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
+                - Note: If either 'width' or 'height' are not specified, no resizing is done
         """
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
