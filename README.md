@@ -63,7 +63,7 @@ from pixelator import Pixelator
 # Capture from a webcam since no data or filename is provided
 image = Pixelator()
 
-# Pixelate the image to a 28x28 black and white array
+# Pixelate the image to a 64x64 black, white and multiple gray array
 pixelated_image = image.pixelate(
     width=64,
     height=64,
