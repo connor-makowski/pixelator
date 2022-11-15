@@ -37,13 +37,13 @@ class Picture_Utils:
 
         Takes in three required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
         &#34;&#34;&#34;
@@ -63,10 +63,10 @@ class Picture_Utils:
 
         Takes in two required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `aspect_ratio_w_by_h`:
+            - &#39;aspect_ratio_w_by_h&#39;:
                 - Type: int | float
                 - What: The aspect ratio for the cropped image
         &#34;&#34;&#34;
@@ -89,13 +89,13 @@ class Picture_Utils:
 
         Takes in three required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
         &#34;&#34;&#34;
@@ -109,10 +109,10 @@ class Picture_Utils:
 
         Takes in two required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `palette`:
+            - &#39;palette&#39;:
                 - Type: list of lists
                 - What: A list of BGR lists for quantizing the image
         &#34;&#34;&#34;
@@ -137,7 +137,7 @@ class Picture_Utils:
 
         Takes in one optional argument:
 
-            - `cam_port`:
+            - &#39;cam_port&#39;:
                 - Type: int
                 - What: The camera port to use for a capture
                 - Default: 0
@@ -159,13 +159,13 @@ class Picture_Utils:
 
         Takes in one required argument:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
 
         Takes in one optional argument:
 
-            - `colorscheme`:
+            - &#39;colorscheme&#39;:
                 - Type: str
                 - What: The color scheme to convert
                 - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
@@ -189,7 +189,7 @@ class Picture_Utils:
 
         Requires one argument:
 
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename from which to load a picture
         &#34;&#34;&#34;
@@ -203,15 +203,15 @@ class Pixelator(Picture_Utils):
 
         Takes in three optional arguments:
 
-            - `data`:
+            - &#39;data&#39;:
                 - Type: list of lists
                 - What: BGR array of data to input
                 - Note: If not specified, proceeds to attempt to load from a filename
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename from which to load a picture
                 - Note: If not specified, proceeds to attempt a camera capture
-            - `cam_port`:
+            - &#39;cam_port&#39;:
                 - Type: int
                 - What: The camera port to use for a capture
                 - Note: For more info see the docs for cv2.VideoCapture.
@@ -231,15 +231,15 @@ class Pixelator(Picture_Utils):
 
         Takes in three optional arguments:
 
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `height`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `palette`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+            - &#39;palette&#39;:
                 - Type: list of lists
                 - What: A list of BGR lists to apply as a pallete
                 - Note: If not specified, no palette is applied
@@ -255,20 +255,20 @@ class Pixelator(Picture_Utils):
 
         Takes in one required argument:
 
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename at which to write the picture
 
         Takes in two optional arguments:
 
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
-            - `height`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
         &#34;&#34;&#34;
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
@@ -301,13 +301,13 @@ class Pixelator(Picture_Utils):
 
         Takes in three required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
         &#34;&#34;&#34;
@@ -327,10 +327,10 @@ class Pixelator(Picture_Utils):
 
         Takes in two required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `aspect_ratio_w_by_h`:
+            - &#39;aspect_ratio_w_by_h&#39;:
                 - Type: int | float
                 - What: The aspect ratio for the cropped image
         &#34;&#34;&#34;
@@ -353,13 +353,13 @@ class Pixelator(Picture_Utils):
 
         Takes in three required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-            - `height`:
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
         &#34;&#34;&#34;
@@ -373,10 +373,10 @@ class Pixelator(Picture_Utils):
 
         Takes in two required arguments:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
-            - `palette`:
+            - &#39;palette&#39;:
                 - Type: list of lists
                 - What: A list of BGR lists for quantizing the image
         &#34;&#34;&#34;
@@ -401,7 +401,7 @@ class Pixelator(Picture_Utils):
 
         Takes in one optional argument:
 
-            - `cam_port`:
+            - &#39;cam_port&#39;:
                 - Type: int
                 - What: The camera port to use for a capture
                 - Default: 0
@@ -423,13 +423,13 @@ class Pixelator(Picture_Utils):
 
         Takes in one required argument:
 
-            - `image`:
+            - &#39;image&#39;:
                 - Type: list of lists
                 - What: CV2 image data
 
         Takes in one optional argument:
 
-            - `colorscheme`:
+            - &#39;colorscheme&#39;:
                 - Type: str
                 - What: The color scheme to convert
                 - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
@@ -453,7 +453,7 @@ class Pixelator(Picture_Utils):
 
         Requires one argument:
 
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename from which to load a picture
         &#34;&#34;&#34;
@@ -471,7 +471,7 @@ class Pixelator(Picture_Utils):
 <dd>
 <div class="desc"><p>Uses an attached camera or webcam to capture its input at the time of calling</p>
 <p>Takes in one optional argument:</p>
-<pre><code>- &lt;code&gt;cam\_port&lt;/code&gt;:
+<pre><code>- 'cam_port':
     - Type: int
     - What: The camera port to use for a capture
     - Default: 0
@@ -488,7 +488,7 @@ def capture(cam_port=0):
 
     Takes in one optional argument:
 
-        - `cam_port`:
+        - &#39;cam_port&#39;:
             - Type: int
             - What: The camera port to use for a capture
             - Default: 0
@@ -510,13 +510,13 @@ def capture(cam_port=0):
 <dd>
 <div class="desc"><p>Crops an image to a specified width and height (centered)</p>
 <p>Takes in three required arguments:</p>
-<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+<pre><code>- 'image':
     - Type: list of lists
     - What: CV2 image data
-- &lt;code&gt;width&lt;/code&gt;:
+- 'width':
     - Type: int
     - What: The width in pixels for the output image
-- &lt;code&gt;height&lt;/code&gt;:
+- 'height':
     - Type: int
     - What: The height in pixels for the output image
 </code></pre></div>
@@ -531,13 +531,13 @@ def crop_image(image, width, height):
 
     Takes in three required arguments:
 
-        - `image`:
+        - &#39;image&#39;:
             - Type: list of lists
             - What: CV2 image data
-        - `width`:
+        - &#39;width&#39;:
             - Type: int
             - What: The width in pixels for the output image
-        - `height`:
+        - &#39;height&#39;:
             - Type: int
             - What: The height in pixels for the output image
     &#34;&#34;&#34;
@@ -557,10 +557,10 @@ def crop_image(image, width, height):
 <dd>
 <div class="desc"><p>Crops an image to a specified aspect ratio</p>
 <p>Takes in two required arguments:</p>
-<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+<pre><code>- 'image':
     - Type: list of lists
     - What: CV2 image data
-- &lt;code&gt;aspect\_ratio\_w\_by\_h&lt;/code&gt;:
+- 'aspect_ratio_w_by_h':
     - Type: int | float
     - What: The aspect ratio for the cropped image
 </code></pre></div>
@@ -575,10 +575,10 @@ def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
 
     Takes in two required arguments:
 
-        - `image`:
+        - &#39;image&#39;:
             - Type: list of lists
             - What: CV2 image data
-        - `aspect_ratio_w_by_h`:
+        - &#39;aspect_ratio_w_by_h&#39;:
             - Type: int | float
             - What: The aspect ratio for the cropped image
     &#34;&#34;&#34;
@@ -601,10 +601,10 @@ def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
 <dd>
 <div class="desc"><p>Quantizes an image to a given palette</p>
 <p>Takes in two required arguments:</p>
-<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+<pre><code>- 'image':
     - Type: list of lists
     - What: CV2 image data
-- &lt;code&gt;palette&lt;/code&gt;:
+- 'palette':
     - Type: list of lists
     - What: A list of BGR lists for quantizing the image
 </code></pre></div>
@@ -619,10 +619,10 @@ def quantize_to_palette(image, palette):
 
     Takes in two required arguments:
 
-        - `image`:
+        - &#39;image&#39;:
             - Type: list of lists
             - What: CV2 image data
-        - `palette`:
+        - &#39;palette&#39;:
             - Type: list of lists
             - What: A list of BGR lists for quantizing the image
     &#34;&#34;&#34;
@@ -647,7 +647,7 @@ def quantize_to_palette(image, palette):
 <dd>
 <div class="desc"><p>Reads a picture into CV2 image data</p>
 <p>Requires one argument:</p>
-<pre><code>- &lt;code&gt;filename&lt;/code&gt;:
+<pre><code>- 'filename':
     - Type: str
     - What: Filename from which to load a picture
 </code></pre></div>
@@ -662,7 +662,7 @@ def read(filename):
 
     Requires one argument:
 
-        - `filename`:
+        - &#39;filename&#39;:
             - Type: str
             - What: Filename from which to load a picture
     &#34;&#34;&#34;
@@ -675,13 +675,13 @@ def read(filename):
 <dd>
 <div class="desc"><p>Resizes an image to a specified width and height</p>
 <p>Takes in three required arguments:</p>
-<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+<pre><code>- 'image':
     - Type: list of lists
     - What: CV2 image data
-- &lt;code&gt;width&lt;/code&gt;:
+- 'width':
     - Type: int
     - What: The width in pixels for the output image
-- &lt;code&gt;height&lt;/code&gt;:
+- 'height':
     - Type: int
     - What: The height in pixels for the output image
 </code></pre></div>
@@ -696,13 +696,13 @@ def resize(image, width, height, interpolation=cv2.INTER_AREA):
 
     Takes in three required arguments:
 
-        - `image`:
+        - &#39;image&#39;:
             - Type: list of lists
             - What: CV2 image data
-        - `width`:
+        - &#39;width&#39;:
             - Type: int
             - What: The width in pixels for the output image
-        - `height`:
+        - &#39;height&#39;:
             - Type: int
             - What: The height in pixels for the output image
     &#34;&#34;&#34;
@@ -716,12 +716,12 @@ def resize(image, width, height, interpolation=cv2.INTER_AREA):
 <dd>
 <div class="desc"><p>Converts an image to an alternate colorscheme</p>
 <p>Takes in one required argument:</p>
-<pre><code>- &lt;code&gt;image&lt;/code&gt;:
+<pre><code>- 'image':
     - Type: list of lists
     - What: CV2 image data
 </code></pre>
 <p>Takes in one optional argument:</p>
-<pre><code>- &lt;code&gt;colorscheme&lt;/code&gt;:
+<pre><code>- 'colorscheme':
     - Type: str
     - What: The color scheme to convert
     - Options: ['bgr', 'rgb', 'gray', 'hsv']
@@ -738,13 +738,13 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
     Takes in one required argument:
 
-        - `image`:
+        - &#39;image&#39;:
             - Type: list of lists
             - What: CV2 image data
 
     Takes in one optional argument:
 
-        - `colorscheme`:
+        - &#39;colorscheme&#39;:
             - Type: str
             - What: The color scheme to convert
             - Options: [&#39;bgr&#39;, &#39;rgb&#39;, &#39;gray&#39;, &#39;hsv&#39;]
@@ -771,15 +771,15 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 <dd>
 <div class="desc"><p>Initialize a Pixelator object.</p>
 <p>Takes in three optional arguments:</p>
-<pre><code>- &lt;code&gt;data&lt;/code&gt;:
+<pre><code>- 'data':
     - Type: list of lists
     - What: BGR array of data to input
     - Note: If not specified, proceeds to attempt to load from a filename
-- &lt;code&gt;filename&lt;/code&gt;:
+- 'filename':
     - Type: str
     - What: Filename from which to load a picture
     - Note: If not specified, proceeds to attempt a camera capture
-- &lt;code&gt;cam\_port&lt;/code&gt;:
+- 'cam_port':
     - Type: int
     - What: The camera port to use for a capture
     - Note: For more info see the docs for cv2.VideoCapture.
@@ -795,15 +795,15 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
         Takes in three optional arguments:
 
-            - `data`:
+            - &#39;data&#39;:
                 - Type: list of lists
                 - What: BGR array of data to input
                 - Note: If not specified, proceeds to attempt to load from a filename
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename from which to load a picture
                 - Note: If not specified, proceeds to attempt a camera capture
-            - `cam_port`:
+            - &#39;cam_port&#39;:
                 - Type: int
                 - What: The camera port to use for a capture
                 - Note: For more info see the docs for cv2.VideoCapture.
@@ -823,15 +823,15 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
         Takes in three optional arguments:
 
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `height`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, this function only applies the palette
-            - `palette`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+            - &#39;palette&#39;:
                 - Type: list of lists
                 - What: A list of BGR lists to apply as a pallete
                 - Note: If not specified, no palette is applied
@@ -847,20 +847,20 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
         Takes in one required argument:
 
-            - `filename`:
+            - &#39;filename&#39;:
                 - Type: str
                 - What: Filename at which to write the picture
 
         Takes in two optional arguments:
 
-            - `width`:
+            - &#39;width&#39;:
                 - Type: int
                 - What: The width in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
-            - `height`:
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
+            - &#39;height&#39;:
                 - Type: int
                 - What: The height in pixels for the output image
-                - Note: If either `width` or `height` are not specified, no resizing is done
+                - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
         &#34;&#34;&#34;
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
@@ -879,15 +879,15 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 <div class="desc"><p>Pixelates an image to a specific shape and color palette</p>
 <p>Returns a new Pixelator (class) image</p>
 <p>Takes in three optional arguments:</p>
-<pre><code>- &lt;code&gt;width&lt;/code&gt;:
+<pre><code>- 'width':
     - Type: int
     - What: The width in pixels for the output image
-    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, this function only applies the palette
-- &lt;code&gt;height&lt;/code&gt;:
+    - Note: If either 'width' or 'height' are not specified, this function only applies the palette
+- 'height':
     - Type: int
     - What: The height in pixels for the output image
-    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, this function only applies the palette
-- &lt;code&gt;palette&lt;/code&gt;:
+    - Note: If either 'width' or 'height' are not specified, this function only applies the palette
+- 'palette':
     - Type: list of lists
     - What: A list of BGR lists to apply as a pallete
     - Note: If not specified, no palette is applied
@@ -904,15 +904,15 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
     Takes in three optional arguments:
 
-        - `width`:
+        - &#39;width&#39;:
             - Type: int
             - What: The width in pixels for the output image
-            - Note: If either `width` or `height` are not specified, this function only applies the palette
-        - `height`:
+            - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+        - &#39;height&#39;:
             - Type: int
             - What: The height in pixels for the output image
-            - Note: If either `width` or `height` are not specified, this function only applies the palette
-        - `palette`:
+            - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, this function only applies the palette
+        - &#39;palette&#39;:
             - Type: list of lists
             - What: A list of BGR lists to apply as a pallete
             - Note: If not specified, no palette is applied
@@ -929,19 +929,19 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 <dd>
 <div class="desc"><p>Writes the current image to a specific file and resizes to a given width and height if supplied</p>
 <p>Takes in one required argument:</p>
-<pre><code>- &lt;code&gt;filename&lt;/code&gt;:
+<pre><code>- 'filename':
     - Type: str
     - What: Filename at which to write the picture
 </code></pre>
 <p>Takes in two optional arguments:</p>
-<pre><code>- &lt;code&gt;width&lt;/code&gt;:
+<pre><code>- 'width':
     - Type: int
     - What: The width in pixels for the output image
-    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, no resizing is done
-- &lt;code&gt;height&lt;/code&gt;:
+    - Note: If either 'width' or 'height' are not specified, no resizing is done
+- 'height':
     - Type: int
     - What: The height in pixels for the output image
-    - Note: If either &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; are not specified, no resizing is done
+    - Note: If either 'width' or 'height' are not specified, no resizing is done
 </code></pre></div>
 <details class="source">
 <summary>
@@ -953,20 +953,20 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 
     Takes in one required argument:
 
-        - `filename`:
+        - &#39;filename&#39;:
             - Type: str
             - What: Filename at which to write the picture
 
     Takes in two optional arguments:
 
-        - `width`:
+        - &#39;width&#39;:
             - Type: int
             - What: The width in pixels for the output image
-            - Note: If either `width` or `height` are not specified, no resizing is done
-        - `height`:
+            - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
+        - &#39;height&#39;:
             - Type: int
             - What: The height in pixels for the output image
-            - Note: If either `width` or `height` are not specified, no resizing is done
+            - Note: If either &#39;width&#39; or &#39;height&#39; are not specified, no resizing is done
     &#34;&#34;&#34;
     if width == None or height == None:
         (height, width) = self.data.shape[:2]
