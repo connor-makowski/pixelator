@@ -17,5 +17,5 @@ pixelated_image = image.pixelate(
     height=28,
     palette=palette
 )
-# Write to `output.png` scaled up to a 500x500 image (to be easily viewed)
+# Write to `output.png` scaled up to a 300x300 image (to be easily viewed)
 pixelated_image.write(filename='./images/output_test_2.jpg', width=300, height=300)
