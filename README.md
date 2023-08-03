@@ -87,4 +87,6 @@ pixelated_image = image.pixelate(
 )
 # Show pixelated image data
 print(pixelated_image.data)
+# Show Color Counts:
+print(pixelated_image.get_color_counts())
 ```
