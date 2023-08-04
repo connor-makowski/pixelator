@@ -272,7 +272,24 @@ class Pixelator(Picture_Utils):
         &#34;&#34;&#34;
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
-        cv2.imwrite(filename, self.resize(self.data, width, height))</code></pre>
+        cv2.imwrite(filename, self.resize(self.data, width, height))
+
+    def get_color_counts(self):
+        &#34;&#34;&#34;
+        Gets the counts of each color in the image
+
+        Returns a dictionary of color counts where:
+            - The keys are the tuples of the colors
+            - The values are the counts of each color
+
+        EG: {(255, 255, 255): 100, (0, 0, 0): 50}
+        &#34;&#34;&#34;
+        colors, count = numpy.unique(
+            self.data.reshape(-1, self.data.shape[-1]), axis=0, return_counts=True
+        )
+        # Force all items in colors to be integers
+        colors = colors.astype(int)
+        return dict(zip([tuple(color) for color in colors], count))</code></pre>
 </details>
 </section>
 <section>
@@ -864,7 +881,24 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
         &#34;&#34;&#34;
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
-        cv2.imwrite(filename, self.resize(self.data, width, height))</code></pre>
+        cv2.imwrite(filename, self.resize(self.data, width, height))
+
+    def get_color_counts(self):
+        &#34;&#34;&#34;
+        Gets the counts of each color in the image
+
+        Returns a dictionary of color counts where:
+            - The keys are the tuples of the colors
+            - The values are the counts of each color
+
+        EG: {(255, 255, 255): 100, (0, 0, 0): 50}
+        &#34;&#34;&#34;
+        colors, count = numpy.unique(
+            self.data.reshape(-1, self.data.shape[-1]), axis=0, return_counts=True
+        )
+        # Force all items in colors to be integers
+        colors = colors.astype(int)
+        return dict(zip([tuple(color) for color in colors], count))</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -872,6 +906,37 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="pixelator.pixelator.Pixelator.get_color_counts"><code class="name flex">
+<span>def <span class="ident">get_color_counts</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the counts of each color in the image</p>
+<p>Returns a dictionary of color counts where:
+- The keys are the tuples of the colors
+- The values are the counts of each color</p>
+<p>EG: {(255, 255, 255): 100, (0, 0, 0): 50}</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_color_counts(self):
+    &#34;&#34;&#34;
+    Gets the counts of each color in the image
+
+    Returns a dictionary of color counts where:
+        - The keys are the tuples of the colors
+        - The values are the counts of each color
+
+    EG: {(255, 255, 255): 100, (0, 0, 0): 50}
+    &#34;&#34;&#34;
+    colors, count = numpy.unique(
+        self.data.reshape(-1, self.data.shape[-1]), axis=0, return_counts=True
+    )
+    # Force all items in colors to be integers
+    colors = colors.astype(int)
+    return dict(zip([tuple(color) for color in colors], count))</code></pre>
+</details>
+</dd>
 <dt id="pixelator.pixelator.Pixelator.pixelate"><code class="name flex">
 <span>def <span class="ident">pixelate</span></span>(<span>self, width=None, height=None, palette=None)</span>
 </code></dt>
@@ -1020,6 +1085,7 @@ def to_colorscheme(image, colorscheme=&#34;bgr&#34;):
 <li>
 <h4><code><a title="pixelator.pixelator.Pixelator" href="#pixelator.pixelator.Pixelator">Pixelator</a></code></h4>
 <ul class="">
+<li><code><a title="pixelator.pixelator.Pixelator.get_color_counts" href="#pixelator.pixelator.Pixelator.get_color_counts">get_color_counts</a></code></li>
 <li><code><a title="pixelator.pixelator.Pixelator.pixelate" href="#pixelator.pixelator.Pixelator.pixelate">pixelate</a></code></li>
 <li><code><a title="pixelator.pixelator.Pixelator.write" href="#pixelator.pixelator.Pixelator.write">write</a></code></li>
 </ul>

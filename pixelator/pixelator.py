@@ -251,7 +251,7 @@ class Pixelator(Picture_Utils):
         Gets the counts of each color in the image
 
         Returns a dictionary of color counts where:
-            - The keys are the tuples of the colors 
+            - The keys are the tuples of the colors
             - The values are the counts of each color
 
         EG: {(255, 255, 255): 100, (0, 0, 0): 50}
@@ -262,4 +262,3 @@ class Pixelator(Picture_Utils):
         # Force all items in colors to be integers
         colors = colors.astype(int)
         return dict(zip([tuple(color) for color in colors], count))
-        
