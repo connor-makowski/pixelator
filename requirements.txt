@@ -1,4 +1,5 @@
 pdoc3==0.10.0
 black==22.3.0
 autoflake==1.4
+twine==4.0.2
 -e .

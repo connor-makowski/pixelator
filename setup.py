@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
   name = 'pixelator',
   packages = ['pixelator'],
-  version = '1.0.0',
+  version = '1.1.0',
   license='MIT',
   description = 'Pixelate images to a specified size and color palette for AI/ML and various other purposes',
   long_description=long_description,
@@ -15,7 +15,7 @@ setup(
   author = 'Connor Makowski',
   author_email = 'connor.m.makowski@gmail.com',
   url = 'https://github.com/connor-makowski/pixelator',
-  download_url = 'https://github.com/connor-makowski/pixelator/dist/pixelator-1.0.0.tar.gz',
+  download_url = 'https://github.com/connor-makowski/pixelator/dist/pixelator-1.1.0.tar.gz',
   keywords = ['pixelate', 'picture', 'pixel', 'pixels', 'ai', 'ml'],
   install_requires=[
           'opencv-python>=4.6.0.66',

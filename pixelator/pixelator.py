@@ -245,3 +245,20 @@ class Pixelator(Picture_Utils):
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
         cv2.imwrite(filename, self.resize(self.data, width, height))
+
+    def get_color_counts(self):
+        """
+        Gets the counts of each color in the image
+
+        Returns a dictionary of color counts where:
+            - The keys are the tuples of the colors
+            - The values are the counts of each color
+
+        EG: {(255, 255, 255): 100, (0, 0, 0): 50}
+        """
+        colors, count = numpy.unique(
+            self.data.reshape(-1, self.data.shape[-1]), axis=0, return_counts=True
+        )
+        # Force all items in colors to be integers
+        colors = colors.astype(int)
+        return dict(zip([tuple(color) for color in colors], count))
