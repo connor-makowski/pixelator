@@ -1,9 +1,9 @@
-import cv2, numpy
+import cv2, numpy, type_enforced
 
 
 class Picture_Utils:
     @staticmethod
-    def crop_image(image, width, height):
+    def crop_image(image: list, width: int, height: int):
         """
         Crops an image to a specified width and height (centered)
 
@@ -29,7 +29,7 @@ class Picture_Utils:
         return image[h_start:h_end, w_start:w_end]
 
     @staticmethod
-    def crop_to_aspect_ratio(image, aspect_ratio_w_by_h):
+    def crop_to_aspect_ratio(image: list, aspect_ratio_w_by_h: [int, float]):
         """
         Crops an image to a specified aspect ratio
 
@@ -55,7 +55,9 @@ class Picture_Utils:
         raise Exception("Invalid aspect_ratio_w_by_h")
 
     @staticmethod
-    def resize(image, width, height, interpolation=cv2.INTER_AREA):
+    def resize(
+        image: list, width: int, height: int, interpolation=cv2.INTER_AREA
+    ):
         """
         Resizes an image to a specified width and height
 
@@ -75,7 +77,7 @@ class Picture_Utils:
         return cv2.resize(image, (width, height), interpolation=interpolation)
 
     @staticmethod
-    def quantize_to_palette(image, palette):
+    def quantize_to_palette(image: list, palette: list):
         """
         Quantizes an image to a given palette
 
@@ -93,17 +95,21 @@ class Picture_Utils:
             numpy.reshape(palette, (1,) + palette.shape), cv2.COLOR_BGR2HSV
         ).reshape(palette.shape)
         hsv_image_vector = (
-            cv2.cvtColor(image, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(numpy.float32)
+            cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+            .reshape(-1, 3)
+            .astype(numpy.float32)
         )
         # Use KNN to quantize
         knn = cv2.ml.KNearest_create()
         knn.train(hsv_palette, cv2.ml.ROW_SAMPLE, numpy.arange(len(palette)))
         ret, results, neighbours, dist = knn.findNearest(hsv_image_vector, 1)
         # Return the array as numpy in the correct shape as float 32 (to match cv2)
-        return numpy.array([palette[idx] for idx in neighbours.astype(int)]).reshape(image.shape)
+        return numpy.array(
+            [palette[idx] for idx in neighbours.astype(int)]
+        ).reshape(image.shape)
 
     @staticmethod
-    def capture(cam_port=0):
+    def capture(cam_port: int = 0):
         """
         Uses an attached camera or webcam to capture its input at the time of calling
 
@@ -125,7 +131,7 @@ class Picture_Utils:
         return image
 
     @staticmethod
-    def to_colorscheme(image, colorscheme="bgr"):
+    def to_colorscheme(image: list, colorscheme: str = "bgr"):
         """
         Converts an image to an alternate colorscheme
 
@@ -155,7 +161,7 @@ class Picture_Utils:
             return cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     @staticmethod
-    def read(filename):
+    def read(filename: str):
         """
         Reads a picture into CV2 image data
 
@@ -168,8 +174,14 @@ class Picture_Utils:
         return cv2.imread(filename)
 
 
+@type_enforced.Enforcer
 class Pixelator(Picture_Utils):
-    def __init__(self, data=None, filename=None, cam_port=0):
+    def __init__(
+        self,
+        data: [numpy.ndarray, list,None] = None,
+        filename: [str, None] = None,
+        cam_port: int = 0,
+    ):
         """
         Initialize a Pixelator object.
 
@@ -195,7 +207,12 @@ class Pixelator(Picture_Utils):
         else:
             self.data = self.capture(cam_port)
 
-    def pixelate(self, width=None, height=None, palette=None):
+    def pixelate(
+        self,
+        width: [int, None] = None,
+        height: [int, None] = None,
+        palette: [numpy.ndarray, list, None] = None,
+    ):
         """
         Pixelates an image to a specific shape and color palette
 
@@ -221,7 +238,7 @@ class Pixelator(Picture_Utils):
             out = self.quantize_to_palette(out, palette)
         return Pixelator(data=out)
 
-    def write(self, filename, width=None, height=None):
+    def write(self, filename: str, width: [int, None] = None, height: [int, None] = None):
         """
         Writes the current image to a specific file and resizes to a given width and height if supplied
 
@@ -257,7 +274,9 @@ class Pixelator(Picture_Utils):
         EG: {(255, 255, 255): 100, (0, 0, 0): 50}
         """
         colors, count = numpy.unique(
-            self.data.reshape(-1, self.data.shape[-1]), axis=0, return_counts=True
+            self.data.reshape(-1, self.data.shape[-1]),
+            axis=0,
+            return_counts=True,
         )
         # Force all items in colors to be integers
         colors = colors.astype(int)

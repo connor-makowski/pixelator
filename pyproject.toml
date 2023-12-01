@@ -1,4 +1,32 @@
 [tool.black]
-line-length = 100
+line-length = 80
 target-version = ['py39']
 exclude = '/.*(__pycache__).*/'
+
+[tool.setuptools]
+py-modules = ["pixelator"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixelator"
+version = "1.2.0"
+description = "Pixelate images to a specified size and color palette for AI/ML and various other purposes"
+authors = [
+    {name="Connor Makowski", email="conmak@mit.edu"}
+]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    'License :: OSI Approved :: MIT License',
+    "Operating System :: OS Independent",
+]
+dependencies = ['opencv-python>=4.6.0.66', 'type_enforced>=1.2.0']
+
+[project.urls]
+"Homepage" = "https://github.com/connor-makowski/pixelator"
+"Bug Tracker" = "https://github.com/connor-makowski/pixelator/issues"
+"Documentation" = "https://connor-makowski.github.io/pixelator/pixelator.html"
