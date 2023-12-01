@@ -12,7 +12,7 @@ Features
 
 Technical Docs
 --------
-https://connor-makowski.github.io/pixelator/pixelator.html
+https://connor-makowski.github.io/pixelator/pixelator/pixelator.html
 
 Setup
 ----------

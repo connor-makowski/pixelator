@@ -29,4 +29,4 @@ dependencies = ['opencv-python>=4.6.0.66', 'type_enforced>=1.2.0']
 [project.urls]
 "Homepage" = "https://github.com/connor-makowski/pixelator"
 "Bug Tracker" = "https://github.com/connor-makowski/pixelator/issues"
-"Documentation" = "https://connor-makowski.github.io/pixelator/pixelator.html"
+"Documentation" = "https://connor-makowski.github.io/pixelator/pixelator/pixelator.html"
