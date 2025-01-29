@@ -95,9 +95,14 @@ class Picture_Utils:
         palette = numpy.array(palette, dtype=numpy.int16)
         for i in range(image.shape[0]):
             for j in range(image.shape[1]):
-                quantized_image[i, j] = palette[numpy.argmin(numpy.sum(numpy.absolute((palette - image[i, j])), axis=1))]
+                quantized_image[i, j] = palette[
+                    numpy.argmin(
+                        numpy.sum(
+                            numpy.absolute((palette - image[i, j])), axis=1
+                        )
+                    )
+                ]
         return quantized_image.astype(numpy.uint8)
-
 
     @staticmethod
     def capture(cam_port: int = 0):
@@ -169,7 +174,7 @@ class Picture_Utils:
 class Pixelator(Picture_Utils):
     def __init__(
         self,
-        data: [numpy.ndarray, list,None] = None,
+        data: [numpy.ndarray, list, None] = None,
         filename: [str, None] = None,
         cam_port: int = 0,
     ):
@@ -229,7 +234,12 @@ class Pixelator(Picture_Utils):
             out = self.quantize_to_palette(out, palette)
         return Pixelator(data=out)
 
-    def write(self, filename: str, width: [int, None] = None, height: [int, None] = None):
+    def write(
+        self,
+        filename: str,
+        width: [int, None] = None,
+        height: [int, None] = None,
+    ):
         """
         Writes the current image to a specific file and resizes to a given width and height if supplied
 
@@ -252,7 +262,9 @@ class Pixelator(Picture_Utils):
         """
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
-        cv2.imwrite(filename, self.resize(self.data, width, height).astype(numpy.uint8))
+        cv2.imwrite(
+            filename, self.resize(self.data, width, height).astype(numpy.uint8)
+        )
 
     def get_color_counts(self):
         """
