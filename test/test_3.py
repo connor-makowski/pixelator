@@ -1,4 +1,11 @@
 from pixelator import Pixelator
+
+# If the os is a docker image, exit the program
+import os
+if os.path.exists("/.dockerenv"):
+    print("Test 3 skipped (cannot run in docker)")
+    exit()
+
 # Capture from a webcam since no data or filename is provided
 image = Pixelator()
 
@@ -10,3 +17,5 @@ pixelated_image = image.pixelate(
 )
 # Write to `output.png` scaled up to a 500x500 image (to be easily viewed)
 pixelated_image.write(filename='./images/output_test_3.jpg', width=300, height=300)
+
+print("Test 3 passed")
