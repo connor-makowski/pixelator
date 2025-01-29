@@ -90,23 +90,19 @@ class Picture_Utils:
                 - Type: list of lists
                 - What: A list of BGR lists for quantizing the image
         """
-        palette = numpy.array(palette).astype(numpy.float32)
-        hsv_palette = cv2.cvtColor(
-            numpy.reshape(palette, (1,) + palette.shape), cv2.COLOR_BGR2HSV
-        ).reshape(palette.shape)
-        hsv_image_vector = (
-            cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-            .reshape(-1, 3)
-            .astype(numpy.float32)
-        )
-        # Use KNN to quantize
-        knn = cv2.ml.KNearest_create()
-        knn.train(hsv_palette, cv2.ml.ROW_SAMPLE, numpy.arange(len(palette)))
-        ret, results, neighbours, dist = knn.findNearest(hsv_image_vector, 1)
-        # Return the array as numpy in the correct shape as float 32 (to match cv2)
-        return numpy.array(
-            [palette[idx] for idx in neighbours.astype(int)]
-        ).reshape(image.shape)
+        image = image.astype(numpy.int16)
+        quantized_image = numpy.zeros_like(image)
+        palette = numpy.array(palette, dtype=numpy.int16)
+        for i in range(image.shape[0]):
+            for j in range(image.shape[1]):
+                quantized_image[i, j] = palette[
+                    numpy.argmin(
+                        numpy.sum(
+                            numpy.absolute((palette - image[i, j])), axis=1
+                        )
+                    )
+                ]
+        return quantized_image.astype(numpy.uint8)
 
     @staticmethod
     def capture(cam_port: int = 0):
@@ -178,7 +174,7 @@ class Picture_Utils:
 class Pixelator(Picture_Utils):
     def __init__(
         self,
-        data: [numpy.ndarray, list,None] = None,
+        data: [numpy.ndarray, list, None] = None,
         filename: [str, None] = None,
         cam_port: int = 0,
     ):
@@ -238,7 +234,12 @@ class Pixelator(Picture_Utils):
             out = self.quantize_to_palette(out, palette)
         return Pixelator(data=out)
 
-    def write(self, filename: str, width: [int, None] = None, height: [int, None] = None):
+    def write(
+        self,
+        filename: str,
+        width: [int, None] = None,
+        height: [int, None] = None,
+    ):
         """
         Writes the current image to a specific file and resizes to a given width and height if supplied
 
@@ -261,7 +262,9 @@ class Pixelator(Picture_Utils):
         """
         if width == None or height == None:
             (height, width) = self.data.shape[:2]
-        cv2.imwrite(filename, self.resize(self.data, width, height))
+        cv2.imwrite(
+            filename, self.resize(self.data, width, height).astype(numpy.uint8)
+        )
 
     def get_color_counts(self):
         """
