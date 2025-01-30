@@ -12,6 +12,12 @@ fi
 pip install -r requirements.txt > /dev/null
 printf "done.\n"
 
+# Ensure that the README.md is copied to the main __init__.py file
+cp README.md pixelator/__init__.py
+sed -i '1s/^/\"\"\"\n/' pixelator/__init__.py
+echo "\"\"\"" >> pixelator/__init__.py
+echo "from .pixelator import Pixelator" >> pixelator/__init__.py
+
 # Specify versions for documentation purposes
 VERSION="1.3.0"
 OLD_DOC_VERSIONS="1.2.0 1.1.0 1.0.0 0.1"

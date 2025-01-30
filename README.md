@@ -1,23 +1,19 @@
-Pixelator
-==========
-A simple python package to pixelate images given a color palette
+# Pixelator
+A simple python package to pixelate images given a BGR color palette
 
-Features
---------
+## Features
 
 - Users can:
   1. Load in array data, image files or capture directly from a camera
   2. Pixelate images to a specific color palette and image resolution
-  3. Access pixelated array data or write it back to an image file
+  3. Access pixelated array data and / or write it back to an image file
 
-Technical Docs
---------
+## Technical Docs
 https://connor-makowski.github.io/pixelator/pixelator/pixelator.html
 
-Setup
-----------
+## Setup
 
-Make sure you have Python 3.6.x (or higher). You can download it [here](https://www.python.org/downloads/).
+Make sure you have Python 3.7.x (or higher). You can download it [here](https://www.python.org/downloads/).
 
 ### Installation
 
@@ -38,7 +34,7 @@ Some important notes:
 ### Examples
 
 Load from a file:
-```
+```py
 from pixelator import Pixelator
 # Use the input filename provided
 image = Pixelator(filename='./images/input.jpg')
@@ -58,7 +54,7 @@ Output:
 ![](images/output_test_1.jpg)
 
 Capture from a webcam:
-```
+```py
 from pixelator import Pixelator
 # Capture from a webcam since no data or filename is provided
 image = Pixelator()
@@ -75,7 +71,7 @@ pixelated_image.write(filename='./images/output_test_3.jpg', width=300, height=3
 ![](images/output_test_3.jpg)
 
 Access Pixelator Data:
-```
+```py
 from pixelator import Pixelator
 # Use the input filename provided
 image = Pixelator(filename='./images/input.jpg')
