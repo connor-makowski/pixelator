@@ -1,22 +1,12 @@
-# Change to the script directory
-cd $(dirname "$0")
-# Ensure a properly setup virtual environment
-printf "Setting up the virtual environment..."
-python3 -m virtualenv venv > /dev/null
-source venv/bin/activate
-# If not in an venv, do not continue
-if [ -z "$VIRTUAL_ENV" ]; then
-    printf "\nNot in a virtual environment. Exiting."
-    exit 1
-fi
-pip install -r requirements.txt > /dev/null
-printf "done.\n"
+#!/bin/bash
+cd /app/
 
-# Ensure that the README.md is copied to the main __init__.py file
+# Make a temp init.py that only has the content below the __README_CONTENT_IS_COPIED_ABOVE__ line
 cp README.md pixelator/__init__.py
 sed -i '1s/^/\"\"\"\n/' pixelator/__init__.py
 echo "\"\"\"" >> pixelator/__init__.py
 echo "from .pixelator import Pixelator" >> pixelator/__init__.py
+
 
 # Specify versions for documentation purposes
 VERSION="1.3.0"
@@ -31,7 +21,7 @@ function generate_docs() {
             pip install "./dist/pixelator-$INPUT_VERSION.tar.gz"
         fi
     fi
-    python3 -m pdoc -o ./docs/$INPUT_VERSION -t ./doc_template pixelator
+    pdoc -o ./docs/$INPUT_VERSION -t ./doc_template pixelator
 }
 
 # Generate the docs for the current version
